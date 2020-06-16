@@ -1,26 +1,15 @@
-import Dependencies._
+name := "argyle"
+organization := "com.joefkelley"
+version := "0.99"
+scalaVersion := "2.11.11"
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "com.joefkelley",
-      scalaVersion := "2.12.1",
-      version      := "1.0.0"
-    )),
-    name := "argyle",
-    libraryDependencies ++= Seq(
-      scalaTest % Test,
-      shapeless
-    ),
+resolvers += "Typesafe" at "https://repo.typesafe.com/typesafe/releases/"
+resolvers += "Java.net Maven2 Repository" at "https://download.java.net/maven/2/"
+resolvers += "Maven central" at "https://repo1.maven.org/maven2/"
+resolvers += "Twitter Repository" at "https://maven.twttr.com"
 
-    // Sonatype settings
-    homepage := Some(url("https://github.com/jfkelley/argyle")),
-    scmInfo := Some(ScmInfo(url("https://github.com/jfkelley/argyle"),
-                                "git@github.com:jfkelley/argyle.git")),
-    developers += Developer("joefkelley",
-                            "Joseph Kelley",
-                            "joe@joefkelley.com",
-                            url("http://www.joefkelley.com")),
-    licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-    pomIncludeRepository := (_ => false)
-  )
+
+libraryDependencies ++= Seq (
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+  "com.chuusai" %% "shapeless" % "2.3.2"
+)
